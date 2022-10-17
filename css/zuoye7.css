@@ -1,0 +1,107 @@
+div{
+				width:80px;
+				height:80px;
+				background:skyblue;
+				transition:width 5s;
+				display: inline-block;
+				text-align: center;
+				position: relative;
+			}
+			/* 第一个 */
+			.box
+			{
+				width: 80px;
+				height: 80px;
+				background: skyblue;
+				transition: height 2s;
+			}
+			.fist{
+				background-color: pink;
+			}
+			.fist:hover
+			{
+				height: 100px;
+				
+			}
+			/* 第二个 */
+			.div1{
+				margin-left: 200px;
+				height: 80px;
+				background-color: skyblue;
+				transition-property: all;
+				transition-duration: 6s;
+							}
+			.box1{
+				color: yellow;
+				font-size: 50px;
+				width: 80px;
+				height: 80px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				transition-duration: 10ms;
+			}
+			.box1:hover::before{
+			     content: "访问visitNeusoftSchool";
+			     font-size: 20px;	
+					
+				}
+			.box1:hover{
+			  width:256px;
+			  height:80px;
+			  background-color: skyblue;
+				
+			} 
+			.second{
+					width: 80px;
+					height: 80px;
+					background: pink;
+					transition: height 2s;
+	
+				}
+			/* 	第三个 */
+			.div2{
+			     margin-left: 260px;
+			     height: 80px;
+			     background-color: pink;
+			     transition-property: all;
+			     transition-duration: 5s;
+			}
+			.three{
+				width: 80px;
+				height: 80px;
+				background: skyblue;
+				transition: height 2s;
+			}
+			.box3:hover::before{
+			content:"学生student";
+			font-size: 20px;
+			}
+			.box3:hover{
+			  width:256px;
+			  height:80px;
+			  background-color: pink;
+				
+			} 
+			.box3{
+				width: 80px;
+				height: 80px;
+				background: pink;
+				transition: height 2s;
+			}
+			.box4
+			{
+			    margin-left: 200px;
+				width:100px;
+				height:100px;
+				background:red;
+				animation:mymove 5s;
+				-webkit-animation:mymove 5s; /* Safari and Chrome */
+				text-align: center;
+			}
+			
+			@keyframes mymove{
+				0%     {background:olive; left:0px;   top:100px;}
+				50%   {background:teal; left:350px; top:100px; transform:rotate(-180deg);}
+				100% {background: aqua; left:600px; top:100px;}
+			}
