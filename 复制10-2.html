@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Dom8_2复制</title>
+		<script>
+			function copy(){
+				var dan = document.getElementById("myInput").value;
+				document.getElementById("copyInput").value=dan;
+				document.getElementById("content").innerHTML="复制成功";
+			}
+		</script>
+	</head>
+	<body>
+		<p>点击复制按钮，从第一个文本框复制到第二个文本框，同时显示“复制成功”。</p>
+		<div>
+			<input id="myInput" type="text">
+			<button id="copy" onclick="copy()">复制</button>
+			<input id="copyInput" type="text"><br />
+			<span id="content" style="color: orangered;"></span>
+		</div>
+	</body>
+</html>
