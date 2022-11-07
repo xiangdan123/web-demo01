@@ -1,0 +1,56 @@
+.body{
+	  background-image: url(img/bj.jpg);
+		}
+.p1{
+	font-size: 25px;
+	font-weight: 300px;
+	text-align: center;
+	color: #333;
+	}
+a{
+	color: firebrick;
+	}
+a:hover{
+		color: aqua;
+			}
+.registered{
+		background: rgba(18, 37, 18, .2);
+			
+		width: 360px;
+		height: 420px;
+		padding: 50px 30px;
+		border-radius: 8px;
+		margin: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+.registered input{
+		width: 340px;
+		padding: 0 10px;
+		margin-bottom: 20px;
+		height: 55px;
+		line-height: 55px;
+		border: 0;
+		background: #f5f5f5;
+		font-size: 16px;
+		color: #666;
+		}
+.registered button{
+		display: inline-block;
+		height: 50px;
+		line-height: 50px;
+		width: 360px;
+		background-color: #1e9fff;
+		color: #fff;
+		font-size: 16px;
+		margin-top: 20px;
+		border: none;
+		border-radius: 2px;
+		cursor: pointer;
+		}
+.registered button:hover{
+		box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+	}
