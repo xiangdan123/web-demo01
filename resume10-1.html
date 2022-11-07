@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册界面验证</title>
+</head>
+          <script>
+				//验证用户姓名
+					function checkUname(){
+						//获取用户获得用户名信息
+							var uname=document.getElementById("uname").value;
+						//创建校验规则,用户名2-4个
+							var reg=/^[\u4e00-\u9fa5]{2,4}$/
+						//获取span对象
+							var unameSpan=document.getElementById("unameSpan");
+						//开始交验
+							if(unameSpan==""||unameSpan==null){
+								//输入校验结果
+								unameSpan.innerHTML="*姓名不能为空";
+								unameSpan.style.color="red";
+								return false;
+							}else if(reg.test(uname)){
+								//输入校验结果
+								unameSpan.innerHTML="*姓名通过";
+								unameSpan.style.color="green";
+								return true;
+							}else{
+								//输入校验结果
+								unameSpan.innerHTML="*姓名格式不符"
+								unameSpan.style.color="red";
+								return false;
+							}
+						
+					}
+	
+				//验证密码
+						function checkPwd(){
+							//获取用户获得用户名信息
+								var upwd=document.getElementById("pwd").value;
+							//创建校验规则,密码要求6-8位，首位为字母，后面5-7位是数字
+								var reg=/^[a-z]\w{5,7}$/;
+							//获取span对象
+								var span=document.getElementById("pwdSpan");
+							//开始交验
+								if(span==""||span==null){
+									//输入校验结果
+									span.innerHTML="*密码不能为空";
+									span.style.color="red";
+									return false;
+								}else if(reg.test(upwd)){
+									//输入校验结果
+									span.innerHTML="*密码通过";
+									span.style.color="green";
+									return true;
+								}else{
+									//输入校验结果
+									span.innerHTML="*密码格式不符"
+									span.style.color="red";
+									return false;
+								}
+		
+							checkPwd2();
+						}
+						
+						
+            	//校验爱好选择
+            		function checkFav(){
+            			//获取所有的爱好
+            			var favs=document.getElementsByName("fav");
+            			//获取span对象
+            			var span=document.getElementById("favSpan");
+            			//遍历
+            			for(var i=0;i<favs.length;i++){
+            				if(favs[i].checked){
+            					span.innerHTML="*爱好通过";
+            					span.style.color="green";
+            					return true;
+            				}
+            			}
+            			
+            			span.innerHTML="爱好至少选择一项";
+            			span.style.color="red";
+            			return false;
+            		}
+					
+		 
+		  	function checkField(id,reg){
+		  		//获取用户数据
+		  			var inp=document.getElementById(id);
+		  			var	va=inp.value;
+		  			var	alt=inp.alt;
+		  		
+		  			var span=document.getElementById(id+"Span");
+		  		//开始校验
+		  			if(va==""||va==null){
+		  			//输入校验结果
+		  				span.innerHTML="*"+alt+"不能为空";
+		  				span.style.color="red";
+		  				return false;
+		  			}else if(reg.test(va)){
+		  			//输入校验结果
+		  				span.innerHTML="*"+alt+"通过";
+		  				span.style.color="green";
+		  				return true;
+		  			}else{
+		  			//输入校验结果
+		  				span.innerHTML="*"+alt+"格式不符";
+		  				span.style.color="red";
+		  				return false;
+		  		}
+		  	}
+</script>
+<body>
+   <table width="520" border="1" cellspacing="0" cellpadding="10px">
+        <tr>
+            <td>姓名：</td>
+            <td><input type="text" namea="uname" id="uname" value="" onblur="checkUname()" alt="姓名/">
+			<span id="unameSpan">
+				<font>2-4位汉字</font>
+			</span>
+			</td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" name="pwd" id="pwd" value="" onblur="checkPwd()">
+			<span id="pwdSpan">
+			<font >要求6-8位密码，首位必须为字母</font>
+			</span>
+			</td>
+        </tr>
+        <tr>
+            <td>性别：</td>
+            <td>
+                <input type="radio" name="sex" id="nan"><label for="nan"> 男 </label>
+                <input type="radio" name="sex" id="nv"><label for="nv"> 女 </label>
+            </td>
+        </tr>
+        <tr>
+            <td>血型</td>
+            <td>
+                <input type="radio" name="xue" id="O" checked="O"><label for="weihun">O</label>
+                <input type="radio" name="xue" id="A"><label for="A">A</label>
+                <input type="radio" name="xue" id="B"><label for="B">B</label>
+                <input type="radio" name="xue" id="AB"><label for="AB">AB</label>
+            </td>
+        </tr>
+        <tr>
+            <td>性格：</td>
+            <td>
+                <input type="checkbox" name="xiang" value="1" onclick="checkFav()"/> 热情大方
+                <input type="checkbox" name="xiang" value="2" onclick="checkFav()"/> 温柔体贴
+                <input type="checkbox" name="xiang" checked="checked" value="3" onclick="checkFav()"/> 多情善感
+				<span id="favSpan"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>文件：</td>
+            <td><input type="file" value="浏览"></td>
+        </tr>
+        <tr>
+            <td>简介：</td>
+            <td>
+                <textarea></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>城市：</td>
+            <td>
+                <select>
+                    <option>--请选择城市--</option>
+                    <option>北京</option>
+                    <option>四川</option>
+                    <option>西藏</option>
+					<option>上海</option>
+					<option>重庆</option>
+                </select>
+            </td>
+        </tr>
+        </tr>
+        <td align="center" colspan="2">
+		<input type="submit" value="提交">&nbsp;&nbsp;&nbsp;
+        <input type="reset" value="重置">
+		</td>
+        </tr>
+        <tr>
+		   <td align="center" colspan="2">
+           <input type="checkbox" checked="checked">我同意注册条款和会员加入标准</td>
+    </table>
+</body>
+</html>
