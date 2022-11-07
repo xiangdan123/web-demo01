@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册页面</title>
+		<link  rel="stylesheet" type="text/css" href="css/registered.css"/>
+		<style>body{background-image: url(img/bjj.jpg);}</style>
+		<script>
+			function Uname(){
+				    var reg=/^[\u4e00-\u9fa5]{2,4}$/
+					var uname=document.getElementById("uname").value;
+					var unameSpan=document.getElementById("unameSpan");
+					
+					if(unameSpan==""||unameSpan==null){
+						
+						unameSpan.innerHTML="姓名不能为空";
+						unameSpan.style.color="red";
+						return false;
+					}else if(reg.test(uname)){
+						unameSpan.innerHTML="姓名通过";
+						unameSpan.style.color="green";
+						return true;
+					}
+				
+			}
+			function checkUname(){
+				var pass=/^[a-z]\w{5,7}$/;
+				var password = document.getElementById("password").value;
+				var a = document.getElementById("password");
+				if(password==""||!pass.test(password)){
+					document.getElementById("pwd1").innerHTML="请输入字母数字组合密码";
+				}else{
+					document.getElementById("pwd2").innerHTML="";
+				}
+			}
+			function checkPwd(){
+				
+				var pass=/^[a-z]\w{5,7}$/;
+				var password = document.getElementById("newpassword").value;
+				var newpassword = document.getElementById("newpassword").value;
+				var a = document.getElementById("newpassword");
+				if(password==""||!pass.test(password)){
+					document.getElementById("pwd2").innerHTML="请输入字母数字组合密码";
+				}else{
+					document.getElementById("pwd2").innerHTML="";
+				}
+			}
+			function login(){
+				var password = document.getElementById("password").value;
+				var rewpassword = document.getElementById("rewpassword").value;
+				if(password!=rewpassword){
+					alert("两次输入密码不一致请重新输入！！！");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="registered">
+			<form>
+				<h1 class="p1">欢迎注册</h1>
+
+				<input name="uname" id="uname" placeholder="请输入用户名"  onblur="Uname()" required /><br/>
+				<span  id="unameSpan"></span>
+				<input name="password"  id="password" type="password" placeholder="请输入密码" onblur="checkUname()" required/><br/>
+				<span  style="color: red;" id="pwd1"></span>
+				<input name="rePassword" id="repassword" type="password" placeholder="请再次输入密码" onblur="checkPwd()" required/><br/>
+				<span  style="color: red;" id="pwd2"></span>
+				<span  style="color: red;" id="pwd3"></span>
+				<button type="submit" onclick="login()">注册</button>
+				<br/>
+				<br/>
+			</form>
+		</div>
+	</body>
+	
+</html>
